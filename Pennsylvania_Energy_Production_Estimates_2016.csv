@@ -1,11 +1,14 @@
-Pennsylvania Energy Production Estimates 2016,
-https://www.eia.gov/state/?sid=PA#tabs-3,
-12:38:29 GMT-0400 (Eastern Daylight Time),
-Source: Energy Information Administration, State Energy Data System
 Category,Pennsylvania Energy Production Estimates Trillion Btu
 Coal,1168.6
-Natural Gas - Marketed,5635.7
-Crude Oil,36.1
+Natural Gas,5635.7
+Motor Gasoline excl. Ethanol,0
+Distillate Fuel Oil,0
+Jet Fuel,0
+HGL,0
+Residual Fuel,0
+Other Petroleum,36.1
 Nuclear Electric Power,867.3
-Biofuels,15.1
-Other Renewable Energy,165
+Hydroelectric Power,0
+Biomass,15.1
+Other Renewables,165
+Net Electricity Imports,0
