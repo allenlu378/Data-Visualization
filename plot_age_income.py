@@ -20,9 +20,7 @@ consumption = consumption_file.readlines()
 ####
 years=[]
 energy_costs=[]
-total_GHG_arr = []
-energy_consumptions = []
-energy_source_consumption = []
+
 
 for line in municipal[1:]: # Omit header lines
     id, name, address, GFA, year, site_EUI, WNS, source_EUI, WNS_EUI, electricity_use_kbtu, electricity_use_kwh, WNS_electricity, natural_gas_kbtu, natural_gas_therms, WNS_natural_gas, steam_use, total_GHG, GHG_intensity, energy_cost, energy_intensity = line.split(',')
@@ -40,30 +38,4 @@ ax.set_xlabel('Year')
 ax.set_ylabel('Total Energy Cost($)')
 
 fig.show()
-del years[:]
-for line in municipal[1:]: # Omit header lines
-    id, name, address, GFA, year, site_EUI, WNS, source_EUI, WNS_EUI, electricity_use_kbtu, electricity_use_kwh, WNS_electricity, natural_gas_kbtu, natural_gas_therms, WNS_natural_gas, steam_use, total_GHG, GHG_intensity, energy_cost, energy_intensity = line.split(',')
-    if total_GHG == 'Not Available':
-        continue;
-    years.append(year.split('/')[2])
-    total_GHG_arr.append(total_GHG) # omit space, -, $, \n
-fig, ax  = plt.subplots(1, 1)
-ax.plot(years, total_GHG_arr, 'ro')
-ax.set_title('Total Greenhouse Gas Emission for Buildings in Pittsburg from 2009-2014')
-ax.set_xlabel('Year')
-ax.set_ylabel('Greenhouse Gas Emission(Metric Tons CO2e)')
 
-fig.show()
-for line in consumption[5:]: # Omit header lines
-    category, energy_estimate = line.split(',')
-    energy_source_consumption.append(category)
-    energy_consumptions.append(float(energy_estimate.rstrip())) # omit space, -, $, \n
-fig, ax = plt.subplots()
-y_pos = np.arange(len(energy_source_consumption))
-plt.barh(y_pos, energy_consumptions)
-ax.set_yticks(y_pos)
-ax.set_yticklabels(energy_source_consumption)
-ax.invert_yaxis()  # labels read top-to-bottom
-ax.set_xlabel('Energy Consumption(Trillion btu)')
-ax.set_title('Energy Consumption by Source in Pennsylvania')
-plt.show()
