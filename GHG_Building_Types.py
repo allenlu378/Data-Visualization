@@ -6,10 +6,10 @@ import seaborn as sns
 #Read data from csv and create new csv for building type data
 file = open('municpal-building-energy-use-2009-2014.csv','r')
 data = file.readlines()
-new_file = open('building_types_emitted_GHG.csv','w',newline='')
+new_file = open('building_types_emitted_GHG.csv','w')
 
 #Write to new csv
-with open('building_types_emitted_GHG.csv','w',newline='') as new_file:
+with open('building_types_emitted_GHG.csv','w') as new_file:
     
     #Create csv file writer and column names
     file_writer = csv.writer(new_file, delimiter=',')

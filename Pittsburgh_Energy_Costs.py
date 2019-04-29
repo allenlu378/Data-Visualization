@@ -17,7 +17,7 @@ for num, line in enumerate(data[1:], 1):
         if energy_cost == 'Not Available':
           rows_to_skip.append(num) 
 
-#Read data from csv and skip rows where energy cost is not available
+#Read data from csv and skip rows ==where energy cost is not available
 usable_data = pd.read_csv('municpal-building-energy-use-2009-2014.csv', encoding='cp1252', skiprows=rows_to_skip)
 
 #Create and display swarm plot
