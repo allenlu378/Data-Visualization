@@ -51,7 +51,7 @@ new_data = pd.read_csv('building_types_emitted_GHG.csv')
 
 #Create and display violin graph
 sns.set(font_scale=1.5)
-graph = sns.factorplot(x="Building Type", y="Emitted GHG", col="Year", data=new_data, kind="violin", col_wrap = 3,size = 5, aspect=1.5)
+graph = sns.factorplot(x="Building Type", y="Emitted GHG", col="Year", data=new_data, kind="violin", col_wrap = 3,size = 5, aspect=1.5, palette = 'BuGn_r')
 graph.fig.subplots_adjust(top=0.9)
 graph.fig.suptitle('Greenhouse Gas Emission By Different Building Types in Pittsburgh from 2009-2014', size = 20)
 plt.show()

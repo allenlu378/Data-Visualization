@@ -22,9 +22,8 @@ usable_data = pd.read_csv('municpal-building-energy-use-2009-2014.csv', encoding
 
 #Create and display swarm plot
 plt.rcParams['figure.figsize']=(25,10)
-sns.set(font_scale=1.5)
-sns.boxplot(x="Year Ending", y="Energy Cost ($)", data=usable_data, whis=np.inf)
-sns.swarmplot(x="Year Ending", y="Energy Cost ($)", data=usable_data, color = ".2").set_title('Energy Costs of Buildings in Pittsburgh from 2009-2014', size = 20)
+sns.set(font_scale=1.2)
+sns.boxplot(x="Year Ending", y="Energy Cost ($)", data=usable_data, whis=np.inf, palette = 'Blues')
 plt.ylim(0, 50000)
 plt.show()
 

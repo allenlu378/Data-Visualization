@@ -13,7 +13,7 @@ plt.rcParams['figure.figsize']=(20,15)
 
 #Create graph, rotate labels, and display graph
 df = pd.DataFrame({'consumption': con_data['Pennsylvania Energy Consumption Estimates Trillion Btu'].values, 'production': pro_data['Pennsylvania Energy Production Estimates Trillion Btu'].values}, index=pro_data['Category'].values)
-ax = df.plot(kind = 'bar', rot = 15)
+ax = df.plot(kind = 'bar', rot = 15, colormap = 'Paired')
 ax.set_title('Consumption and Production of Energy Sources in Pennsylvania', size = 20)
 xticks = ax.get_xticklabels()
 ax.set_xlabel('Energy Source', size = 15)
