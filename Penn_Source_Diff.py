@@ -7,17 +7,18 @@ import matplotlib.patches as mpatches
 #Read consumption and production data
 con_data = pd.read_csv('Pennsylvania_Energy_Consumption_Estimates_2016.csv')
 pro_data = pd.read_csv('Pennsylvania_Energy_Production_Estimates_2016.csv')
+types = ['Consumption', 'Consumption', 'Consumption', 'Consumption', 'Consumption', 'Consumption', 'Consumption', 'Consumption', 'Consumption', 'Consumption', 'Consumption', 'Consumption', 'Consumption', 'Production', 'Production', 'Production', 'Production', 'Production', 'Production', 'Production', 'Production', 'Production', 'Production', 'Production', 'Production', 'Production']
 
 #Set figure size
+sns.set(font_scale=1.1)
 plt.rcParams['figure.figsize']=(20,15)
 
-#Create graph, rotate labels, and display graph
-df = pd.DataFrame({'consumption': con_data['Pennsylvania Energy Consumption Estimates Trillion Btu'].values, 'production': pro_data['Pennsylvania Energy Production Estimates Trillion Btu'].values}, index=pro_data['Category'].values)
-ax = df.plot(kind = 'bar', rot = 15, colormap = 'Paired')
+#Organize data from both data sets
+df = pd.DataFrame({'Type': types, 'Energy':  con_data['Pennsylvania Energy Consumption Estimates Trillion Btu'].values.tolist() + pro_data['Pennsylvania Energy Production Estimates Trillion Btu'].values.tolist()}, index = pro_data['Category'].values.tolist()+ pro_data['Category'].values.tolist())
+
+#Create and display graph
+ax = sns.barplot(x = df.Energy, y = df.index, hue = df.Type, palette = 'Blues' )
 ax.set_title('Consumption and Production of Energy Sources in Pennsylvania', size = 20)
-xticks = ax.get_xticklabels()
-ax.set_xlabel('Energy Source', size = 15)
-ax.set_ylabel('Energy (Trillion btu)', size = 15)
-for tick in xticks:
-    tick.set_ha('right')
+ax.set_xlabel('Energy (Trillion btu)', size = 15)
+ax.set_ylabel('Energy Source', size = 15)
 plt.show()
