@@ -18,7 +18,7 @@ df = pd.DataFrame({'Type': types, 'Energy':  con_data['Pennsylvania Energy Consu
 
 #Create and display graph
 ax = sns.barplot(x = df.Energy, y = df.index, hue = df.Type, palette = 'Blues' )
-ax.set_title('Consumption and Production of Energy Sources in Pennsylvania', size = 20)
+ax.set_title('Consumption and Production of Energy Sources in Pennsylvania in 2016', size = 20)
 ax.set_xlabel('Energy (Trillion btu)', size = 15)
 ax.set_ylabel('Energy Source', size = 15)
 plt.show()
